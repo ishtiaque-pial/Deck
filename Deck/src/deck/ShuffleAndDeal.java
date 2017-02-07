@@ -46,43 +46,19 @@ public class ShuffleAndDeal {
     //deal method with no of hands argument
     public ArrayList<String> deal(int n)
     {
-        switch(n)
+        if(n>=2&&n<=5)
         {
-            case 2://no of hands 2
-                for(int i=0;i<n*5;i++)//used 10 cards out of 52 cards
-                {
-                    int playerNo=(i%2)+1;// get player no
-                    hands.add("Player"+playerNo+" gets "+list.get(i));
-                }
-                break;
-                
-            case 3://no of hands 3
-                for(int i=0;i<n*5;i++)//used 15 cards out of 52 cards
-                {
-                    int playerNo=(i%3)+1;
-                    hands.add("Player"+playerNo+" gets "+list.get(i));
-                }
-                break;
-            case 4://no of hands 4
-                for(int i=0;i<n*5;i++)//used 20 cards out of 52 cards
-                {
-                    int playerNo=(i%4)+1;
-                    hands.add("Player"+playerNo+" gets "+list.get(i));
-                }
-                break;
-            case 5://no of hands 5
-               for(int i=0;i<n*5;i++)////used 25 cards out of 52 cards
-                {
-                    int playerNo=(i%5)+1;
-                    hands.add("Player"+playerNo+" gets "+list.get(i));
-                }
-                break;
-                
-            default:
-                //for other no of hands,it will set arrylist hands empty
-                break;
+            for(int i=0;i<n*5;i++)
+            {
+                hands.add(list.get(i));
+            }
+            return hands;
+        }
+        else
+        {
+            return hands;
         }
         
-        return hands;
+        
     }
 }

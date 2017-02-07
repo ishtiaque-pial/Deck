@@ -16,6 +16,7 @@ public class Deck {
         ArrayList<String> hands = new ArrayList<String>();
         BufferedReader inFromUser=new BufferedReader(new InputStreamReader(System.in));
         ShuffleAndDeal shuffleAndDeal=new ShuffleAndDeal();
+        int n;
         
         list=shuffleAndDeal.shuffle();
         
@@ -27,14 +28,35 @@ public class Deck {
         do
         {
             //taking number of players from user
-            System.out.print("Enter number of player");
-            int n=Integer.parseInt(inFromUser.readLine());
+            System.out.print("Enter number of player ");
+            n=Integer.parseInt(inFromUser.readLine());
             hands=shuffleAndDeal.deal(n);
         }while(hands.isEmpty());// checking if no of the hands is out of the bound 
         
-        for(int i=0;i<hands.size();i++)
+        System.out.printf("%-20s %-20s %-20s %-20s %-20s \n","Player1","Player2","Player3","Player4","Player5");
+        System.out.printf("%-20s %-20s %-20s %-20s %-20s \n","-------","-------","-------","-------","-------");
+        for(int i=0;i<5;i++)
         {
-            System.out.println(hands.get(i));
+            switch(n)
+            {
+                case 2:
+                System.out.printf("%-20s %-20s %-20s %-20s %-20s \n",hands.get(i+0),hands.get(i+1),"---","---","---");
+                break;
+                
+                case 3:
+                System.out.printf("%-20s %-20s %-20s %-20s %-20s \n",hands.get(i+0),hands.get(i+1),hands.get(i+2),"---","---");
+                break;
+                
+                case 4:
+                System.out.printf("%-20s %-20s %-20s %-20s %-20s \n",hands.get(i+0),hands.get(i+1),hands.get(i+2),hands.get(i+3),"---");
+                break;
+                
+                case 5:
+                System.out.printf("%-20s %-20s %-20s %-20s %-20s \n",hands.get(i+0),hands.get(i+1),hands.get(i+2),hands.get(i+3),hands.get(i+4));
+                break;
+                    
+            }
+            
         }
     }
 }
